@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 350" width="400" height="350">
+  <defs>
+    <!-- Background gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1a0533"/>
+      <stop offset="100%" stop-color="#0d0015"/>
+    </radialGradient>
+
+    <!-- Trophy body gradient -->
+    <linearGradient id="trophyGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe066"/>
+      <stop offset="40%" stop-color="#ffb700"/>
+      <stop offset="70%" stop-color="#ff8c00"/>
+      <stop offset="100%" stop-color="#ffd700"/>
+    </linearGradient>
+
+    <!-- Cup shine -->
+    <linearGradient id="cupShine" x1="0%" y1="0%" x2="60%" y2="100%">
+      <stop offset="0%" stop-color="#fff8c0" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffb700" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Glow filter -->
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Soft glow for orb -->
+    <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Star filter -->
+    <filter id="starGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="350" fill="url(#bgGrad)" rx="18"/>
+
+  <!-- Grid lines (subtle) -->
+  <g opacity="0.07" stroke="#c084fc" stroke-width="0.5">
+    <line x1="0" y1="50" x2="400" y2="50"/>
+    <line x1="0" y1="100" x2="400" y2="100"/>
+    <line x1="0" y1="150" x2="400" y2="150"/>
+    <line x1="0" y1="200" x2="400" y2="200"/>
+    <line x1="0" y1="250" x2="400" y2="250"/>
+    <line x1="0" y1="300" x2="400" y2="300"/>
+    <line x1="50" y1="0" x2="50" y2="350"/>
+    <line x1="100" y1="0" x2="100" y2="350"/>
+    <line x1="150" y1="0" x2="150" y2="350"/>
+    <line x1="200" y1="0" x2="200" y2="350"/>
+    <line x1="250" y1="0" x2="250" y2="350"/>
+    <line x1="300" y1="0" x2="300" y2="350"/>
+    <line x1="350" y1="0" x2="350" y2="350"/>
+  </g>
+
+  <!-- Ambient glow orb behind trophy -->
+  <ellipse cx="200" cy="185" rx="70" ry="55" fill="#a855f7" opacity="0.13" filter="url(#softGlow)">
+    <animate attributeName="opacity" values="0.10;0.22;0.10" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="rx" values="70;80;70" dur="3s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- ===== TROPHY ===== -->
+  <g filter="url(#glow)">
+    <!-- Trophy: handles (left) -->
+    <path d="M148,108 Q118,108 118,138 Q118,162 148,165" fill="none" stroke="url(#trophyGold)" stroke-width="10" stroke-linecap="round"/>
+    <!-- Trophy: handles (right) -->
+    <path d="M252,108 Q282,108 282,138 Q282,162 252,165" fill="none" stroke="url(#trophyGold)" stroke-width="10" stroke-linecap="round"/>
+
+    <!-- Trophy cup body -->
+    <path d="M148,90 L252,90 Q258,90 260,96 L268,160 Q270,175 260,185 Q245,200 200,205 Q155,200 140,185 Q130,175 132,160 L140,96 Q142,90 148,90 Z" fill="url(#trophyGold)"/>
+
+    <!-- Cup shine overlay -->
+    <path d="M155,95 L210,95 Q215,95 216,100 L222,148 Q213,142 200,140 Q185,138 170,142 L163,100 Q163,95 155,95 Z" fill="url(#cupShine)" opacity="0.5"/>
+
+    <!-- Trophy stem -->
+    <rect x="188" y="205" width="24" height="36" rx="4" fill="url(#trophyGold)"/>
+
+    <!-- Trophy base platform top -->
+    <rect x="162" y="241" width="76" height="14" rx="5" fill="url(#trophyGold)"/>
+    <!-- Trophy base platform bottom -->
+    <rect x="154" y="253" width="92" height="10" rx="5" fill="#ff8c00"/>
+
+    <!-- Star on trophy -->
+    <g transform="translate(200,152)">
+      <polygon points="0,-22 5.5,-8 20,-8 9,0 13,14 0,6 -13,14 -9,0 -20,-8 -5.5,-8" fill="#fff8c0" filter="url(#starGlow)">
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="8s" repeatCount="indefinite"/>
+      </polygon>
+    </g>
+  </g>
+
+  <!-- ===== FLOATING PARTICLES ===== -->
+  <!-- Particle 1 -->
+  <circle cx="120" cy="100" r="3" fill="#e879f9" opacity="0.8" filter="url(#starGlow)">
+    <animate attributeName="cy" values="100;70;100" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="4s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Particle 2 -->
+  <circle cx="290" cy="130" r="2.5" fill="#818cf8" opacity="0.9" filter="url(#starGlow)">
+    <animate attributeName="cy" values="130;95;130" dur="3.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.2;0.9" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Particle 3 -->
+  <circle cx="155" cy="260" r="2" fill="#fbbf24" opacity="0.7">
+    <animate attributeName="cy" values="260;235;260" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.7;0.1;0.7" dur="5s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Particle 4 -->
+  <circle cx="255" cy="75" r="3" fill="#34d399" opacity="0.8" filter="url(#starGlow)">
+    <animate attributeName="cy" values="75;48;75" dur="4.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;0.15;0.8" dur="4.5s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Particle 5 -->
+  <circle cx="320" cy="220" r="2" fill="#f472b6" opacity="0.7">
+    <animate attributeName="cy" values="220;195;220" dur="3.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.7;0.1;0.7" dur="3.8s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Particle 6 -->
+  <circle cx="85" cy="200" r="2.5" fill="#a78bfa" opacity="0.8">
+    <animate attributeName="cy" values="200;172;200" dur="4.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="4.2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Small sparkle diamonds -->
+  <g transform="translate(340,80)">
+    <polygon points="0,-6 3,0 0,6 -3,0" fill="#fde68a" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;0.1;0.9" dur="2.5s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="6s" repeatCount="indefinite"/>
+    </polygon>
+  </g>
+
+  <g transform="translate(62,145)">
+    <polygon points="0,-5 2.5,0 0,5 -2.5,0" fill="#c4b5fd" opacity="0.85">
+      <animate attributeName="opacity" values="0.85;0.1;0.85" dur="3s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="5s" repeatCount="indefinite"/>
+    </polygon>
+  </g>
+
+  <g transform="translate(348,270)">
+    <polygon points="0,-5 2.5,0 0,5 -2.5,0" fill="#6ee7b7" opacity="0.8">
+      <animate attributeName="opacity" values="0.8;0.1;0.8" dur="3.5s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="7s" repeatCount="indefinite"/>
+    </polygon>
+  </g>
+
+  <!-- ===== BOTTOM TEXT ===== -->
+  <text x="200" y="310" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#a78bfa" letter-spacing="3" opacity="0.85">KEEP BUILDING</text>
+  <text x="200" y="330" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#6d28d9" letter-spacing="2" opacity="0.6">✦ Pratishtha Sharma ✦</text>
+
+  <!-- Pulsing ring around trophy base -->
+  <ellipse cx="200" cy="258" rx="55" ry="8" fill="none" stroke="#a855f7" stroke-width="1" opacity="0.5">
+    <animate attributeName="rx" values="55;70;55" dur="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0;0.5" dur="2.5s" repeatCount="indefinite"/>
+  </ellipse>
+</svg>
