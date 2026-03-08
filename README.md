@@ -39,7 +39,7 @@ I'm a developer passionate about AI/ML, currently deepening my understanding of 
         <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Pratishtha-sh&theme=radical&hide_border=false&include_all_commits=false&count_private=false&layout=compact" />
       </td>
       <td valign="middle" align="center" width="400">
-        <img src="./github-animation.svg" width="380" alt="Animated Trophy"/>
+        <img src="./github-animation.svg" width="400" height="200" alt="Animated Trophy"/>
       </td>
     </tr>
   </table>
